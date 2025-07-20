@@ -47,3 +47,29 @@ export const loadDetailFromCache = (id) => {
 
   return data;
 };
+
+const CART_COUNT_KEY = "cart_count";
+
+export const saveCartCountToCache = (count) => {
+  const payload = {
+    timestamp: Date.now(),
+    data: count,
+  };
+  localStorage.setItem(CART_COUNT_KEY, JSON.stringify(payload));
+};
+
+export const loadCartCountFromCache = () => {
+  const cached = localStorage.getItem(CART_COUNT_KEY);
+  if (!cached) return null;
+
+  const { timestamp, data } = JSON.parse(cached);
+  const now = Date.now();
+
+  if (now - timestamp > EXPIRATION_TIME) {
+    localStorage.removeItem(CART_COUNT_KEY);
+    return null;
+  }
+
+  return data;
+};
+

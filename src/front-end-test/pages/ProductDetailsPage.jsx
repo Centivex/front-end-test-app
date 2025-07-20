@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useFetchDetail } from "../hooks/useFetchDetail";
 import { useFetchToCart } from "../hooks/useFecthToCart";
+import { FrontEndTestContext } from "../context/FrontEndTestContext";
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -10,15 +11,13 @@ export const ProductDetailsPage = () => {
   const [selectedStorage, setSelectedStorage] = useState("");
   const { detail, isLoading } = useFetchDetail(id);
   const { addToCart, count, addIsLoading, error } = useFetchToCart();
+  const { updateCartCount } = useContext(FrontEndTestContext);
 
   const navigate = useNavigate();
 
   const goToProductList = () => {
     navigate("/list");
   };
-
-  console.log("el id es:", id);
-
 
   useEffect(() => {
     if (detail?.options?.colors?.length === 1) {
@@ -29,19 +28,17 @@ export const ProductDetailsPage = () => {
     }
   }, [detail]);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
     if (!selectedColor || !selectedStorage) {
       alert("Selecciona color y almacenamiento");
       return;
     }
 
-    addToCart(id, selectedColor,selectedStorage);
+    const newCount = await addToCart(id, selectedColor, selectedStorage);
 
-    console.log("Añadido a la cesta:", {
-      productId: id,
-      colorCode: selectedColor,
-      storageCode: selectedStorage,
-    });
+    if (newCount !== undefined) {
+      updateCartCount(newCount);
+    }
   };
 
   return (
@@ -151,8 +148,6 @@ export const ProductDetailsPage = () => {
             >
               Añadir
             </button>
-            {count && <p>Total productos en carrito: {count}</p>}
-          {error && <p className="text-red-500">Error: {error}</p>}
           </div>
         </div>
       </div>

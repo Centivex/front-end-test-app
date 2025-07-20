@@ -3,7 +3,6 @@ import { loadDetailFromCache, saveDetailToCache } from "../../storage/Cache";
 const getDetail = async (id) => {
   const cachedData = loadDetailFromCache(id);
   if (cachedData) {
-    console.log("te lo devuelvo guardado");
     return cachedData;
   }
 
@@ -16,7 +15,6 @@ const getDetail = async (id) => {
 
   const data = await resp.json();
 
-  console.log("la data es:", data);
 
   const detail = {
     imgUrl: data.imgUrl,
@@ -35,7 +33,6 @@ const getDetail = async (id) => {
     options: data.options
   };
 
-  console.log("la data2 es:", detail);
   saveDetailToCache(id, detail);
 
   return detail;

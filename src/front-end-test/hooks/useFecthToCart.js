@@ -2,7 +2,6 @@ import { useState } from "react";
 import postToCart from "../helpers/PostToCart";
 
 export const useFetchToCart = () => {
-  const [count, setCount] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -12,7 +11,7 @@ export const useFetchToCart = () => {
 
     try {
       const result = await postToCart(id, colorCode, storageCode);
-      setCount(result.count);
+      return result.count;
     } catch (err) {
       setError(err.message || "Error al añadir al carrito");
     } finally {
@@ -21,7 +20,6 @@ export const useFetchToCart = () => {
   };
 
   return {
-    count,
     isLoading,
     error,
     addToCart,
