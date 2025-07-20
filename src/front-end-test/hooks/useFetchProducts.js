@@ -3,12 +3,12 @@ import getProduct from "../helpers/GetProduct";
 
 export const useFetchProducts = () => {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [addIsLoading, setAddIsLoading] = useState(true);
 
   const getProductsList = async () => {
     const newProducts = await getProduct();
     setProducts(newProducts);
-    setIsLoading(false);
+    setAddIsLoading(false);
   };
 
   useEffect(() => {
@@ -17,6 +17,6 @@ export const useFetchProducts = () => {
 
   return {
     products,
-    isLoading,
+    addIsLoading,
   };
 };

@@ -1,7 +1,7 @@
-import { loadFromCache, saveToCache } from "../../storage/Cache";
+import { loadListFromCache, saveListToCache } from "../../storage/Cache";
 
 const getProduct = async () => {
-  const cachedData = loadFromCache();
+  const cachedData = loadListFromCache();
   if (cachedData) {
     return cachedData;
   }
@@ -23,7 +23,7 @@ const getProduct = async () => {
     imgUrl: item.imgUrl,
   }));
 
-  saveToCache(products);
+  saveListToCache(products);
 
   return products;
 };
