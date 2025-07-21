@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 export const ProductDetailList = ({ detail }) => {
@@ -17,13 +17,41 @@ export const ProductDetailList = ({ detail }) => {
     weight,
   } = detail;
 
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [needsExpansion, setNeedsExpansion] = useState(false);
+  const [height, setHeight] = useState('0px'); 
+
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      const scrollHeight = contentRef.current.scrollHeight;
+      if (scrollHeight > 300) {
+        setNeedsExpansion(true);
+        setHeight("300px");
+      } else {
+        setNeedsExpansion(false);
+        setHeight("auto");
+      }
+    }
+  }, [detail]);
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    if (isExpanded) {
+      setHeight(`${contentRef.current.scrollHeight}px`);
+    } else {
+      setHeight("300px");
+    }
+  }, [isExpanded]);
+
   const renderCamera = (camData) => {
     if (!camData) return null;
 
     if (Array.isArray(camData)) {
       const validCams = camData.filter((cam) => cam.trim() !== "");
       if (validCams.length === 0) return null;
-
       return validCams.map((cam, index) => <li key={index}>{cam}</li>);
     }
 
@@ -35,79 +63,64 @@ export const ProductDetailList = ({ detail }) => {
   };
 
   const renderedPrimaryCamera = renderCamera(primaryCamera);
-
   const renderedSecondaryCamera = renderCamera(secondaryCmera);
 
   return (
-    <ul className="list-disc list-inside space-y-2 text-gray-800 text-lg">
-      {brand && (
+    <div className="relative">
+      <ul
+        ref={contentRef}
+        style={{
+          height: height,
+          overflow: "hidden",
+          transition: "height 0.5s ease",
+        }}
+        className="list-disc list-inside space-y-2 text-gray-800 text-lg"
+      >
+        {brand && <li><strong>Marca:</strong> {brand}</li>}
+        {model && <li><strong>Modelo:</strong> {model}</li>}
+        {price && <li><strong>Precio:</strong> {`${price} €`}</li>}
+        {cpu && <li><strong>CPU:</strong> {cpu}</li>}
+        {ram && <li><strong>RAM:</strong> {ram}</li>}
+        {os && <li><strong>Sistema Operativo:</strong> {os}</li>}
+        {displayResolution && <li><strong>Resolución de pantalla:</strong> {displayResolution}</li>}
+        {battery && <li><strong>Batería:</strong> {battery}</li>}
+        {renderedPrimaryCamera && (
+          <li>
+            <strong>Cámara Principal:</strong>
+            <ul className="list-disc list-inside ml-6 mt-1">{renderedPrimaryCamera}</ul>
+          </li>
+        )}
+        {renderedSecondaryCamera && (
+          <li>
+            <strong>Cámara Frontal:</strong>
+            <ul className="list-disc list-inside ml-6 mt-1">{renderedSecondaryCamera}</ul>
+          </li>
+        )}
         <li>
-          <strong>Marca:</strong> {brand}
+          <strong>Dimensiones:</strong>{" "}
+          {dimentions?.trim() && dimentions !== "-" ? dimentions : "Sin información"}
         </li>
-      )}
-      {model && (
         <li>
-          <strong>Modelo:</strong> {model}
+          <strong>Peso:</strong>{" "}
+          {weight?.trim() && weight !== "-" ? weight : "Sin información"}
         </li>
-      )}
-      {price && (
-        <li>
-          <strong>Precio:</strong> {`${price} €`}
-        </li>
-      )}
-      {cpu && (
-        <li>
-          <strong>CPU:</strong> {cpu}
-        </li>
-      )}
-      {ram && (
-        <li>
-          <strong>RAM:</strong> {ram}
-        </li>
-      )}
-      {os && (
-        <li>
-          <strong>Sistema Operativo:</strong> {os}
-        </li>
-      )}
-      {displayResolution && (
-        <li>
-          <strong>Resolución de pantalla:</strong> {displayResolution}
-        </li>
-      )}
-      {battery && (
-        <li>
-          <strong>Batería:</strong> {battery}
-        </li>
-      )}
+      </ul>
 
-      {renderedPrimaryCamera && (
-        <li>
-          <strong>Cámara Principal:</strong>
-          <ul className="list-disc list-inside ml-6 mt-1">
-            {renderedPrimaryCamera}
-          </ul>
-        </li>
+      {!isExpanded && needsExpansion && (
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
       )}
-      {renderedSecondaryCamera && (
-        <li>
-          <strong>Cámara Frontal:</strong>
-          <ul className="list-disc list-inside ml-6 mt-1">
-            {renderedSecondaryCamera}
-          </ul>
-        </li>
+      {needsExpansion && (
+        <div className="relative z-10 mt-4 pb-4 bg-white text-center">
+          <button
+            onClick={() => setIsExpanded((prev) => !prev)}
+            className="text-blue-600 hover:underline font-semibold text-base"
+            aria-expanded={isExpanded}
+          >
+            {isExpanded ? "Ver menos" : "Ver más"}
+          </button>
+        </div>
       )}
-      {dimentions && (
-        <li>
-          <strong>Dimensiones:</strong> {dimentions}
-        </li>
-      )}
-      {weight && (
-        <li>
-          <strong>Peso:</strong> {weight}
-        </li>
-      )}
-    </ul>
+    </div>
   );
 };
 

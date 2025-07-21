@@ -84,8 +84,15 @@ describe("ProductDetailList", () => {
   });
 
   test("does not render fields if they are missing or falsy", () => {
-    render(<ProductDetailList detail={{}} />);
-    expect(screen.queryByRole("listitem")).not.toBeInTheDocument();
-  });
+  render(<ProductDetailList detail={{}} />);
+
+  const items = screen.getAllByRole("listitem");
+  expect(items).toHaveLength(2);
+
+  expect(screen.getByText("Dimensiones:")).toBeInTheDocument();
+  expect(screen.getByText("Peso:")).toBeInTheDocument();
+  expect(screen.getAllByText("Sin información")).toHaveLength(2);
+});
+
 
 });

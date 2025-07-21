@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1753087179197" clover="3.2.0">
-  <project timestamp="1753087179197" name="All files">
-    <metrics statements="223" coveredstatements="220" conditionals="109" coveredconditionals="104" methods="54" coveredmethods="52" elements="386" coveredelements="376" complexity="0" loc="223" ncloc="223" packages="8" files="21" classes="21"/>
+<coverage generated="1753091527175" clover="3.2.0">
+  <project timestamp="1753091527175" name="All files">
+    <metrics statements="241" coveredstatements="234" conditionals="128" coveredconditionals="115" methods="58" coveredmethods="54" elements="427" coveredelements="403" complexity="0" loc="241" ncloc="241" packages="8" files="21" classes="21"/>
     <package name="front-end-test.components">
-      <metrics statements="65" coveredstatements="63" conditionals="56" coveredconditionals="55" methods="23" coveredmethods="22"/>
+      <metrics statements="83" coveredstatements="77" conditionals="75" coveredconditionals="66" methods="27" coveredmethods="24"/>
       <file name="ErrorScreen.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ErrorScreen.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="4" count="2" type="stmt"/>
@@ -36,22 +36,40 @@
         <line num="29" count="1" type="stmt"/>
       </file>
       <file name="ProductDetailList.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ProductDetailList.jsx">
-        <metrics statements="15" coveredstatements="14" conditionals="34" coveredconditionals="33" methods="4" coveredmethods="4"/>
+        <metrics statements="33" coveredstatements="28" conditionals="53" coveredconditionals="44" methods="8" coveredmethods="6"/>
         <line num="4" count="2" type="stmt"/>
-        <line num="18" count="18" type="stmt"/>
-        <line num="20" count="18" type="stmt"/>
-        <line num="21" count="36" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="6" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="8" type="stmt"/>
-        <line num="25" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="27" count="4" type="stmt"/>
-        <line num="30" count="2" type="cond" truecount="3" falsecount="1"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="37" count="18" type="stmt"/>
-        <line num="39" count="18" type="stmt"/>
-        <line num="41" count="18" type="stmt"/>
-        <line num="114" count="2" type="stmt"/>
+        <line num="18" count="28" type="stmt"/>
+        <line num="20" count="28" type="stmt"/>
+        <line num="21" count="28" type="stmt"/>
+        <line num="22" count="28" type="stmt"/>
+        <line num="24" count="28" type="stmt"/>
+        <line num="26" count="28" type="stmt"/>
+        <line num="27" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="14" type="stmt"/>
+        <line num="29" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="14" type="stmt"/>
+        <line num="34" count="14" type="stmt"/>
+        <line num="39" count="28" type="stmt"/>
+        <line num="40" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="42" count="14" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="14" type="stmt"/>
+        <line num="49" count="28" type="stmt"/>
+        <line num="50" count="56" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="16" type="stmt"/>
+        <line num="54" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="55" count="8" type="stmt"/>
+        <line num="58" count="4" type="cond" truecount="3" falsecount="1"/>
+        <line num="59" count="4" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="65" count="28" type="stmt"/>
+        <line num="66" count="28" type="stmt"/>
+        <line num="68" count="28" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="127" count="2" type="stmt"/>
       </file>
       <file name="ProductDetailsSkeleton.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ProductDetailsSkeleton.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
