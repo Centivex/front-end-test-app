@@ -1,5 +1,7 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { ImageWithSkeleton } from "./ImageWithSkeleton";
 
 export const ProductCard = ({ id, brand, model, price, imgUrl }) => {
   const navigate = useNavigate();
@@ -13,10 +15,13 @@ export const ProductCard = ({ id, brand, model, price, imgUrl }) => {
       className="bg-white shadow rounded p-6 text-center w-full text-left cursor-pointer hover:shadow-lg transition"
       onClick={handleClick}
     >
-      <img src={imgUrl} alt={imgUrl} />
+      <ImageWithSkeleton src={imgUrl} alt={`${brand} ${model}`} />
+
       <h2 className="text-lg font-semibold text-gray-800">{brand}</h2>
       <h2 className="text-lg font-semibold text-gray-800">{model}</h2>
-      <h2 className="text-lg font-semibold text-gray-800">{price? price+'€':'No disponible'}</h2>
+      <h2 className="text-lg font-semibold text-gray-800">
+        {price ? price + "€" : "No disponible"}
+      </h2>
     </button>
   );
 };

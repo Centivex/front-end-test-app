@@ -11,7 +11,7 @@ export const useFetchProducts = () => {
       const newProducts = await getProduct();
       setProducts(newProducts);
     } catch (err) {
-      setError("No se ha podido obtener los productos, intentelo más tarde");
+      setError(err);
     } finally {
       setIsLoading(false);
     }

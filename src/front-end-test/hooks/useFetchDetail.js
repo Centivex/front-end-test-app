@@ -13,17 +13,15 @@ export const useFetchDetail = (id) => {
       const detail = await getDetail(id);
       setDetail(detail);
     } catch (err) {
-      setError("No se ha podido obtener los detalles del producto, intentelo más tarde");
+      setError(err);
     } finally {
       setIsLoading(false);
     }
   };
 
   useEffect(() => {
-    
-      fetchGetDetail(id);
-  
-  }, []);
+    fetchGetDetail(id);
+  }, [id]);
 
   return {
     detail,

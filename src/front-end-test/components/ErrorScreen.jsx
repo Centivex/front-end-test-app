@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 export const ErrorScreen = ({ message, onRetry }) => {
@@ -11,6 +12,7 @@ export const ErrorScreen = ({ message, onRetry }) => {
       </p>
       {onRetry && (
         <button
+          data-testid="retry-button"
           onClick={onRetry}
           className="px-6 py-2 bg-yellow-500 text-black font-medium rounded hover:bg-yellow-600 transition"
         >

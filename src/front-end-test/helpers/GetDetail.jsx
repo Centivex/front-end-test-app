@@ -1,3 +1,4 @@
+import React from "react";
 import { loadDetailFromCache, saveDetailToCache } from "../../storage/Cache";
 
 const getDetail = async (id) => {
@@ -10,7 +11,7 @@ const getDetail = async (id) => {
   const resp = await fetch(url);
 
   if (!resp.ok) {
-    throw new Error("Failed to fetch detail");
+    throw new Error("No se ha podido obtener los detalles del producto, intentelo más tarde");
   }
 
   const data = await resp.json();

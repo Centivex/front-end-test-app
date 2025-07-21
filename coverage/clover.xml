@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1753087179197" clover="3.2.0">
+  <project timestamp="1753087179197" name="All files">
+    <metrics statements="223" coveredstatements="220" conditionals="109" coveredconditionals="104" methods="54" coveredmethods="52" elements="386" coveredelements="376" complexity="0" loc="223" ncloc="223" packages="8" files="21" classes="21"/>
+    <package name="front-end-test.components">
+      <metrics statements="65" coveredstatements="63" conditionals="56" coveredconditionals="55" methods="23" coveredmethods="22"/>
+      <file name="ErrorScreen.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ErrorScreen.jsx">
+        <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+      </file>
+      <file name="ImageWithSkeleton.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ImageWithSkeleton.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="7" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+      </file>
+      <file name="OptionSelector.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\OptionSelector.jsx">
+        <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="22" type="stmt"/>
+        <line num="10" count="24" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+      </file>
+      <file name="ProductCard.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ProductCard.jsx">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+      </file>
+      <file name="ProductDetailList.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ProductDetailList.jsx">
+        <metrics statements="15" coveredstatements="14" conditionals="34" coveredconditionals="33" methods="4" coveredmethods="4"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="18" count="18" type="stmt"/>
+        <line num="20" count="18" type="stmt"/>
+        <line num="21" count="36" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="8" type="stmt"/>
+        <line num="25" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="30" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="31" count="2" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="37" count="18" type="stmt"/>
+        <line num="39" count="18" type="stmt"/>
+        <line num="41" count="18" type="stmt"/>
+        <line num="114" count="2" type="stmt"/>
+      </file>
+      <file name="ProductDetailsSkeleton.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ProductDetailsSkeleton.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+      </file>
+      <file name="ProductList.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\ProductList.jsx">
+        <metrics statements="23" coveredstatements="22" conditionals="12" coveredconditionals="12" methods="7" coveredmethods="6"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="15" type="stmt"/>
+        <line num="13" count="15" type="stmt"/>
+        <line num="14" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="15" type="stmt"/>
+        <line num="17" count="15" type="stmt"/>
+        <line num="18" count="9" type="stmt"/>
+        <line num="21" count="15" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="30" count="15" type="stmt"/>
+        <line num="31" count="26" type="stmt"/>
+        <line num="32" count="26" type="stmt"/>
+        <line num="38" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="46" count="8" type="stmt"/>
+        <line num="52" count="14" type="cond" truecount="2" falsecount="0"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="60" count="13" type="stmt"/>
+        <line num="73" count="16" type="stmt"/>
+      </file>
+      <file name="Search.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\Search.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+      <file name="SkeletonCard.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\components\SkeletonCard.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="front-end-test.context">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="FrontEndTestContext.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\context\FrontEndTestContext.jsx">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="front-end-test.helpers">
+      <metrics statements="32" coveredstatements="32" conditionals="10" coveredconditionals="10" methods="4" coveredmethods="4"/>
+      <file name="GetDetail.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\helpers\GetDetail.jsx">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+      </file>
+      <file name="GetProduct.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\helpers\GetProduct.jsx">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+      </file>
+      <file name="PostToCart.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\helpers\PostToCart.jsx">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="front-end-test.hooks">
+      <metrics statements="40" coveredstatements="40" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+      <file name="useFecthToCart.js" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\hooks\useFecthToCart.js">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="8" count="5" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+      </file>
+      <file name="useFetchDetail.js" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\hooks\useFetchDetail.js">
+        <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="23" count="3" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+      </file>
+      <file name="useFetchProducts.js" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\hooks\useFetchProducts.js">
+        <metrics statements="13" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="24" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="front-end-test.pages">
+      <metrics statements="31" coveredstatements="30" conditionals="22" coveredconditionals="19" methods="6" coveredmethods="5"/>
+      <file name="ProductDetailsPage.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\pages\ProductDetailsPage.jsx">
+        <metrics statements="29" coveredstatements="28" conditionals="22" coveredconditionals="19" methods="5" coveredmethods="4"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="11" type="stmt"/>
+        <line num="14" count="11" type="stmt"/>
+        <line num="15" count="11" type="stmt"/>
+        <line num="16" count="11" type="stmt"/>
+        <line num="17" count="11" type="stmt"/>
+        <line num="18" count="11" type="stmt"/>
+        <line num="20" count="11" type="stmt"/>
+        <line num="21" count="11" type="stmt"/>
+        <line num="23" count="11" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="27" count="11" type="stmt"/>
+        <line num="28" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="31" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="4" type="stmt"/>
+        <line num="36" count="11" type="stmt"/>
+        <line num="37" count="3" type="cond" truecount="4" falsecount="0"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="49" count="11" type="cond" truecount="2" falsecount="0"/>
+        <line num="51" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="9" type="stmt"/>
+      </file>
+      <file name="ProductListPage.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\pages\ProductListPage.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="front-end-test.routes">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="FrontEndTestRoutes.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\front-end-test\routes\FrontEndTestRoutes.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="storage">
+      <metrics statements="28" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+      <file name="Cache.js" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\storage\Cache.js">
+        <metrics statements="28" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+        <line num="1" count="6" type="stmt"/>
+        <line num="3" count="6" type="stmt"/>
+        <line num="4" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="10" type="stmt"/>
+        <line num="13" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="19" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="20" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="32" count="6" type="stmt"/>
+        <line num="34" count="6" type="stmt"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="37" count="6" type="stmt"/>
+        <line num="38" count="3" type="stmt"/>
+        <line num="39" count="6" type="stmt"/>
+        <line num="40" count="3" type="stmt"/>
+        <line num="42" count="6" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="6" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="ui">
+      <metrics statements="24" coveredstatements="24" conditionals="17" coveredconditionals="16" methods="4" coveredmethods="4"/>
+      <file name="Navbar.jsx" path="C:\Users\abran\Documents\Codigo\VisualCode\ReactProyecto\front-end-test-app\src\ui\Navbar.jsx">
+        <metrics statements="24" coveredstatements="24" conditionals="17" coveredconditionals="16" methods="4" coveredmethods="4"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="31" count="6" type="stmt"/>
+        <line num="35" count="9" type="stmt"/>
+        <line num="37" count="9" type="stmt"/>
+        <line num="40" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="9" type="cond" truecount="5" falsecount="0"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="46" count="9" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="58" count="8" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

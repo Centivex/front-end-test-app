@@ -1,3 +1,4 @@
+import React from "react";
 import { loadListFromCache, saveListToCache } from "../../storage/Cache";
 
 const getProduct = async () => {
@@ -10,7 +11,7 @@ const getProduct = async () => {
   const resp = await fetch(url);
 
   if (!resp.ok) {
-    throw new Error("Failed to fetch products");
+    throw new Error("No se ha podido obtener los productos, intentelo más tarde");
   }
 
   const data = await resp.json();

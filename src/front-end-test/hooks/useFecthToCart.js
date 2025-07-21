@@ -11,11 +11,9 @@ export const useFetchToCart = () => {
 
     try {
       const result = await postToCart(id, colorCode, storageCode);
-            setError("Error al añadir al carrito");
-
       return result.count;
     } catch (err) {
-      setError("Error al añadir al carrito, vuelve a intentarlo");
+      setError(err);
     } finally {
       setIsLoading(false);
     }

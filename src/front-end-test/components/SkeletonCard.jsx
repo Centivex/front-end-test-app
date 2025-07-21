@@ -1,3 +1,4 @@
+import React from "react";
 export const SkeletonCard = () => {
   return (
     <div className="animate-pulse border rounded p-4 space-y-4">

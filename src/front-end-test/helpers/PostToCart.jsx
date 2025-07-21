@@ -1,3 +1,4 @@
+import React from "react";
 const postToCart = async (id, colorCode, storageCode) => {
   const url = "https://itx-frontend-test.onrender.com/api/cart";
 
@@ -16,7 +17,7 @@ const postToCart = async (id, colorCode, storageCode) => {
   });
 
   if (!resp.ok) {
-    throw new Error("Failed to add product to cart");
+    throw new Error("Error al añadir al carrito, vuelve a intentarlo");
   }
 
   const data = await resp.json();

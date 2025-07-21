@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ProductCard } from "./ProductCard";
@@ -13,7 +14,6 @@ export const ProductList = () => {
   const searchTermFromUrl = searchParams.get("search") || "";
   const [searchTerm, setSearchTerm] = useState(searchTermFromUrl);
 
-  // Sincronizar el estado searchTerm cuando cambie la URL (por si vuelve atrás)
   useEffect(() => {
     setSearchTerm(searchTermFromUrl);
   }, [searchTermFromUrl]);

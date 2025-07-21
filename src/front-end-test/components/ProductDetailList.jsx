@@ -1,3 +1,4 @@
+import React from "react";
 import PropTypes from "prop-types";
 
 export const ProductDetailList = ({ detail }) => {
@@ -11,7 +12,7 @@ export const ProductDetailList = ({ detail }) => {
     displayResolution,
     battery,
     primaryCamera,
-    secondaryCmera, 
+    secondaryCmera,
     dimentions,
     weight,
   } = detail;
@@ -33,37 +34,79 @@ export const ProductDetailList = ({ detail }) => {
     return null;
   };
 
+  const renderedPrimaryCamera = renderCamera(primaryCamera);
+
+  const renderedSecondaryCamera = renderCamera(secondaryCmera);
+
   return (
     <ul className="list-disc list-inside space-y-2 text-gray-800 text-lg">
-      {brand && <li><strong>Marca:</strong> {brand}</li>}
-      {model && <li><strong>Modelo:</strong> {model}</li>}
-      {price && <li><strong>Precio:</strong> {`${price} €`}</li>}
-      {cpu && <li><strong>CPU:</strong> {cpu}</li>}
-      {ram && <li><strong>RAM:</strong> {ram}</li>}
-      {os && <li><strong>Sistema Operativo:</strong> {os}</li>}
-      {displayResolution && (
-        <li><strong>Resolución de pantalla:</strong> {displayResolution}</li>
+      {brand && (
+        <li>
+          <strong>Marca:</strong> {brand}
+        </li>
       )}
-      {battery && <li><strong>Batería:</strong> {battery}</li>}
+      {model && (
+        <li>
+          <strong>Modelo:</strong> {model}
+        </li>
+      )}
+      {price && (
+        <li>
+          <strong>Precio:</strong> {`${price} €`}
+        </li>
+      )}
+      {cpu && (
+        <li>
+          <strong>CPU:</strong> {cpu}
+        </li>
+      )}
+      {ram && (
+        <li>
+          <strong>RAM:</strong> {ram}
+        </li>
+      )}
+      {os && (
+        <li>
+          <strong>Sistema Operativo:</strong> {os}
+        </li>
+      )}
+      {displayResolution && (
+        <li>
+          <strong>Resolución de pantalla:</strong> {displayResolution}
+        </li>
+      )}
+      {battery && (
+        <li>
+          <strong>Batería:</strong> {battery}
+        </li>
+      )}
 
-      {primaryCamera && (
+      {renderedPrimaryCamera && (
         <li>
           <strong>Cámara Principal:</strong>
           <ul className="list-disc list-inside ml-6 mt-1">
-            {renderCamera(primaryCamera)}
+            {renderedPrimaryCamera}
           </ul>
         </li>
       )}
-      {secondaryCmera && (
+      {renderedSecondaryCamera && (
         <li>
           <strong>Cámara Frontal:</strong>
           <ul className="list-disc list-inside ml-6 mt-1">
-            {renderCamera(secondaryCmera)}
+            {renderedSecondaryCamera}
           </ul>
         </li>
       )}
-      {dimentions && <li><strong>Dimensiones:</strong> {dimentions}</li>}
-      {weight && <li><strong>Peso:</strong> {weight}</li>}
+      {dimentions && (
+        <li>
+          <strong>Dimensiones:</strong> {dimentions}
+        </li>
+      )}
+      {weight && (
+        <li>
+          <strong>Peso:</strong> {weight}
+        </li>
+      )}
     </ul>
   );
 };

@@ -1,75 +1,45 @@
-const EXPIRATION_TIME = 60 * 60 * 1000;
+const EXPIRATION_TIME = 60 * 60 * 1000; 
+
+const saveToCache = (key, data) => {
+  const payload = {
+    timestamp: Date.now(),
+    data,
+  };
+  localStorage.setItem(key, JSON.stringify(payload));
+};
+
+const loadFromCache = (key) => {
+  const cached = localStorage.getItem(key);
+  if (!cached) return null;
+
+  try {
+    const { timestamp, data } = JSON.parse(cached);
+    const now = Date.now();
+
+    if (now - timestamp > EXPIRATION_TIME) {
+      localStorage.removeItem(key);
+      return null;
+    }
+
+    return data;
+  } catch (error) {
+    localStorage.removeItem(key); 
+    return null;
+  }
+};
 
 const PRODUCTS_CACHE_KEY = "products_cache";
-
-export const saveListToCache = (data) => {
-  const payload = {
-    timestamp: Date.now(),
-    data,
-  };
-  localStorage.setItem(PRODUCTS_CACHE_KEY, JSON.stringify(payload));
-};
-
-export const loadListFromCache = () => {
-  const cached = localStorage.getItem(PRODUCTS_CACHE_KEY);
-  if (!cached) return null;
-
-  const { timestamp, data } = JSON.parse(cached);
-  const now = Date.now();
-
-  if (now - timestamp > EXPIRATION_TIME) {
-    localStorage.removeItem(PRODUCTS_CACHE_KEY);
-    return null;
-  }
-
-  return data;
-};
-
-export const saveDetailToCache = (id, data) => {
-  const payload = {
-    timestamp: Date.now(),
-    data,
-  };
-  localStorage.setItem(`product_detail_${id}`, JSON.stringify(payload));
-};
-
-export const loadDetailFromCache = (id) => {
-  const cached = localStorage.getItem(`product_detail_${id}`);
-  if (!cached) return null;
-
-  const { timestamp, data } = JSON.parse(cached);
-  const now = Date.now();
-
-  if (now - timestamp > EXPIRATION_TIME) {
-    localStorage.removeItem(`product_detail_${id}`);
-    return null;
-  }
-
-  return data;
-};
-
 const CART_COUNT_KEY = "cart_count";
 
-export const saveCartCountToCache = (count) => {
-  const payload = {
-    timestamp: Date.now(),
-    data: count,
-  };
-  localStorage.setItem(CART_COUNT_KEY, JSON.stringify(payload));
-};
+export const saveListToCache = (data) => saveToCache(PRODUCTS_CACHE_KEY, data);
+export const loadListFromCache = () => loadFromCache(PRODUCTS_CACHE_KEY);
 
-export const loadCartCountFromCache = () => {
-  const cached = localStorage.getItem(CART_COUNT_KEY);
-  if (!cached) return null;
+export const saveDetailToCache = (id, data) =>
+  saveToCache(`product_detail_${id}`, data);
+export const loadDetailFromCache = (id) =>
+  loadFromCache(`product_detail_${id}`);
 
-  const { timestamp, data } = JSON.parse(cached);
-  const now = Date.now();
-
-  if (now - timestamp > EXPIRATION_TIME) {
-    localStorage.removeItem(CART_COUNT_KEY);
-    return null;
-  }
-
-  return data;
-};
-
+export const saveCartCountToCache = (count) =>
+  saveToCache(CART_COUNT_KEY, count);
+export const loadCartCountFromCache = () =>
+  loadFromCache(CART_COUNT_KEY);
