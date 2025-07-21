@@ -2,10 +2,20 @@
  * @jest-environment jsdom
  */
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { ProductDetailList } from "../../../src/front-end-test/components/ProductDetailList";
 
 describe("ProductDetailList", () => {
+
+  beforeAll(() => {
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
+      get() {
+        return 500; // simula altura suficiente para activar expansión
+      },
+    });
+  });
+
   const baseDetail = {
     brand: "MarcaTest",
     model: "ModeloTest",
@@ -94,5 +104,48 @@ describe("ProductDetailList", () => {
   expect(screen.getAllByText("Sin información")).toHaveLength(2);
 });
 
+test("expands content and sets height to scrollHeight on 'Ver más' click", () => {
+    render(<ProductDetailList detail={baseDetail} />);
+
+    const list = screen.getByRole("list");
+
+    expect(list).toHaveStyle({ height: "300px" });
+
+    const button = screen.getByRole("button", { name: /ver más/i });
+    expect(button).toBeInTheDocument();
+
+    fireEvent.click(button);
+
+    expect(list).toHaveStyle({ height: "500px" });
+
+    expect(button.textContent.toLowerCase()).toBe("ver menos");
+  });
+
+  test("renderCamera returns null for falsy primaryCamera and secondaryCmera", () => {
+  const detailWithFalsyCameras = {
+    ...baseDetail,
+    primaryCamera: null,
+    secondaryCmera: undefined,
+  };
+
+  render(<ProductDetailList detail={detailWithFalsyCameras} />);
+  
+  expect(screen.queryByText("Cámara Principal:")).not.toBeInTheDocument();
+  expect(screen.queryByText("Cámara Frontal:")).not.toBeInTheDocument();
+});
+
+test("renderCamera returns null for empty string or spaces in primaryCamera and secondaryCmera", () => {
+  render(<ProductDetailList detail={{ ...baseDetail, primaryCamera: "", secondaryCmera: "   " }} />);
+  
+  expect(screen.queryByText("Cámara Principal:")).not.toBeInTheDocument();
+  expect(screen.queryByText("Cámara Frontal:")).not.toBeInTheDocument();
+});
+
+test("renderCamera returns null for arrays with only empty strings in primaryCamera and secondaryCmera", () => {
+  render(<ProductDetailList detail={{ ...baseDetail, primaryCamera: ["", "  "], secondaryCmera: [" ", ""] }} />);
+  
+  expect(screen.queryByText("Cámara Principal:")).not.toBeInTheDocument();
+  expect(screen.queryByText("Cámara Frontal:")).not.toBeInTheDocument();
+});
 
 });
