@@ -1,22 +1,27 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useFetchDetail } from "../hooks/useFetchDetail";
 import { useFetchToCart } from "../hooks/useFecthToCart";
 import { FrontEndTestContext } from "../context/FrontEndTestContext";
+import { ProductDetailList } from "../components/ProductDetailList";
+import { OptionSelector } from "../components/OptionSelector";
+import { ErrorScreen } from "../components/ErrorScreen";
+import { ProductDetailsSkeleton } from "../components/ProductDetailsSkeleton";
 
 export const ProductDetailsPage = () => {
   const { id } = useParams();
 
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedStorage, setSelectedStorage] = useState("");
-  const { detail, isLoading } = useFetchDetail(id);
-  const { addToCart, count, addIsLoading, error } = useFetchToCart();
+  const { detail, isLoading, error } = useFetchDetail(id);
+  const { addToCart, addIsLoading, addError } = useFetchToCart();
   const { updateCartCount } = useContext(FrontEndTestContext);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const goToProductList = () => {
-    navigate("/list");
+  navigate("/list" + location.search);
   };
 
   useEffect(() => {
@@ -41,6 +46,15 @@ export const ProductDetailsPage = () => {
     }
   };
 
+  if (isLoading) return <ProductDetailsSkeleton />;
+
+  if (error)
+    return (
+      <ErrorScreen message={error} onRetry={() => window.location.reload()} />
+    );
+
+  if (!detail) return null;
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       <button
@@ -58,96 +72,36 @@ export const ProductDetailsPage = () => {
           />
         </div>
         <div>
-          <ul className="list-disc list-inside space-y-2 text-gray-800 text-lg">
-            <li>
-              <strong>Marca:</strong> {detail.brand}
-            </li>
-            <li>
-              <strong>Modelo:</strong> {detail.model}
-            </li>
-            <li>
-              <strong>Precio:</strong> {detail.price} €
-            </li>
-            <li>
-              <strong>CPU:</strong> {detail.cpu}
-            </li>
-            <li>
-              <strong>RAM:</strong> {detail.ram}
-            </li>
-            <li>
-              <strong>Sistema Operativo:</strong> {detail.os}
-            </li>
-            <li>
-              <strong>Resolución de pantalla:</strong>{" "}
-              {detail.displayResolution}
-            </li>
-            <li>
-              <strong>Batería:</strong> {detail.battery}
-            </li>
-            <li>
-              <strong>Cámara Principal:</strong>
-              <ul className="list-disc list-inside ml-6 mt-1">
-                {(detail.primaryCamera ?? []).map((cam, index) => (
-                  <li key={index}>{cam}</li>
-                ))}
-              </ul>
-            </li>
-            <li>
-              <strong>Cámara Frontal:</strong>
-              <ul className="list-disc list-inside ml-6 mt-1">
-                {(detail.secondaryCamera ?? []).map((cam, index) => (
-                  <li key={index}>{cam}</li>
-                ))}
-              </ul>
-            </li>
-            <li>
-              <strong>Dimensiones:</strong> {detail.dimentions}
-            </li>
-            <li>
-              <strong>Peso:</strong> {detail.weight}
-            </li>
-          </ul>
+          <ProductDetailList detail={detail} />
           <div className="mt-6 space-y-4">
-            {/* Selector de color */}
-            <div>
-              <label className="block mb-1 font-medium">Color</label>
-              <select
-                className="w-full border rounded p-2"
-                value={selectedColor}
-                onChange={(e) => setSelectedColor(e.target.value)}
-              >
-                {detail.options?.colors?.map((color) => (
-                  <option key={color.code} value={color.code}>
-                    {color.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Selector de almacenamiento */}
-            <div>
-              <label className="block mb-1 font-medium">Almacenamiento</label>
-              <select
-                className="w-full border rounded p-2"
-                value={selectedStorage}
-                onChange={(e) => setSelectedStorage(e.target.value)}
-              >
-                {detail.options?.storages?.map((storage) => (
-                  <option key={storage.code} value={storage.code}>
-                    {storage.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* Botón Añadir */}
+            <OptionSelector
+              label="Color"
+              options={detail.options?.colors}
+              selected={selectedColor}
+              onSelect={setSelectedColor}
+            />
+            <OptionSelector
+              label="Almacenamiento"
+              options={detail.options?.storages}
+              selected={selectedStorage}
+              onSelect={setSelectedStorage}
+            />
             <button
               disabled={addIsLoading}
-              className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+              className={`px-6 py-2 rounded text-white transition ${
+                addIsLoading
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-600 hover:bg-blue-700"
+              }`}
               onClick={handleAddToCart}
             >
-              Añadir
+              {addIsLoading ? "Añadiendo..." : "Añadir"}
             </button>
+            {addError && (
+              <p className="mt-2 text-sm text-red-600 font-medium">
+                {addError}
+              </p>
+            )}
           </div>
         </div>
       </div>

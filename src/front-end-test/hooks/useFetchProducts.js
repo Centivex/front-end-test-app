@@ -3,12 +3,18 @@ import getProduct from "../helpers/GetProduct";
 
 export const useFetchProducts = () => {
   const [products, setProducts] = useState([]);
-  const [addIsLoading, setAddIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null); 
 
   const getProductsList = async () => {
-    const newProducts = await getProduct();
-    setProducts(newProducts);
-    setAddIsLoading(false);
+    try {
+      const newProducts = await getProduct();
+      setProducts(newProducts);
+    } catch (err) {
+      setError("No se ha podido obtener los productos, intentelo más tarde");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -17,6 +23,7 @@ export const useFetchProducts = () => {
 
   return {
     products,
-    addIsLoading,
+    isLoading,
+    error, 
   };
 };

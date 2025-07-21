@@ -15,7 +15,6 @@ const getDetail = async (id) => {
 
   const data = await resp.json();
 
-
   const detail = {
     imgUrl: data.imgUrl,
     brand: data.brand,
@@ -27,7 +26,7 @@ const getDetail = async (id) => {
     displayResolution: data.displayResolution,
     battery: data.battery,
     primaryCamera: data.primaryCamera,
-    secondaryCamera: data.secondaryCamera,
+    secondaryCmera: data.secondaryCmera,
     dimentions: data.dimentions,
     weight: data.weight,
     options: data.options

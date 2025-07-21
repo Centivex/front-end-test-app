@@ -35,8 +35,13 @@ export const Navbar = () => {
       const path = "/" + array.slice(0, index + 1).join("/");
 
       const isLast = index === array.length - 1;
-      const displayName =
-        isLast && modelName && segment !== modelName ? modelName : segment;
+
+      let displayName =
+        segment === "list" ? "productos" : segment;
+
+      if (isLast && modelName && segment !== modelName) {
+        displayName = modelName;
+      }
 
       return { name: displayName, path };
     });
@@ -51,15 +56,13 @@ export const Navbar = () => {
         {breadcrumbs.length > 1 &&
           breadcrumbs.map((crumb, index) => (
             <span key={index}>
-              <Link to={crumb.path} className="hover:underline">
+              <Link to={crumb.path} className="hover:underline capitalize">
                 {crumb.name}
               </Link>
               {index < breadcrumbs.length - 1 && " / "}
             </span>
           ))}
       </div>
-
-      {/* Carrito */}
       <div className="text-gray-800 font-medium">
         🛒 <span>{cartCount}</span>
       </div>

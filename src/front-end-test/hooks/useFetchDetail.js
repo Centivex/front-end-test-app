@@ -2,21 +2,32 @@ import { useEffect, useState } from "react";
 import getDetail from "../helpers/GetDetail";
 
 export const useFetchDetail = (id) => {
-  const [detail, setDetail] = useState([]);
+  const [detail, setDetail] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   const fetchGetDetail = async (id) => {
-    const detail = await getDetail(id);
-    setDetail(detail);
-    setIsLoading(false);
+    setIsLoading(true);
+    setError(null);
+    try {
+      const detail = await getDetail(id);
+      setDetail(detail);
+    } catch (err) {
+      setError("No se ha podido obtener los detalles del producto, intentelo más tarde");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   useEffect(() => {
-    fetchGetDetail(id);
+    
+      fetchGetDetail(id);
+  
   }, []);
 
   return {
     detail,
     isLoading,
+    error,
   };
 };
